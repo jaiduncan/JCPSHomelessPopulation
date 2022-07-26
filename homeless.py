@@ -18,8 +18,10 @@ print(elem.tail(15))
 elem.drop(labels=range(92,102), inplace=True)
 print(elem.tail(15))
 
+#keeping Moore Traditional and The Academy @ Shawnee from this excel sheet only
 hs=pd.read_excel("JCPS_20-21_HS.xlsx")
-#keeping Moore Traditional and The Academy @ Shawnee only from this excel sheet
+#total hs homeless population 
+hs_total_homeless=hs.iloc[18]
 print(hs.describe())
 print(hs.info())
 print(hs.columns)
@@ -31,7 +33,8 @@ hs.drop(labels=range(23,33), inplace=True)
 print(hs.tail())
 
 ms=pd.read_excel("JCPS_20-21_MS.xlsx")
-
+#total ms homeless population
+ms_total_homeless=ms.iloc[22]
 print(ms.describe())
 print(ms.info())
 print(ms.columns)
@@ -48,7 +51,7 @@ print(df.info())
 print(df.columns)
 print(df.head())
 print(df.tail())
-
+#dropped unwanted columns
 df.drop(columns=['SLN', 'Male', 'Female', 'Homeless % Among Total Homeless Population'], inplace=True)
 print(df.columns)
 print(df.head())
@@ -61,5 +64,6 @@ print(df.head())
 asian_sum=df['Asian'].sum()
 print(asian_sum)
 totals=df.iloc[:,range (1,8)].sum()
+print(totals)
 
-totals.plot.pie()
+totals.plot.pie

@@ -66,4 +66,4 @@ print(asian_sum)
 totals=df.iloc[:,range (1,8)].sum()
 print(totals)
 
-totals.plot.pie
+totals.plot.pie()

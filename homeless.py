@@ -135,10 +135,33 @@ print(hs_enrollment.tail())
 df2=pd.concat([elem_enrollment, ms_enrollment, hs_enrollment])
 print(df2.head())
 print(df2.tail())
-#dropped unwanted columns, leaving school name and total enrollment
+#dropped unwanted columns, leaving Unnamed: 1 (school name) and total enrollment. changed Unnamed: 1 column name to School
 df2.drop(df2.columns.difference(['Unnamed: 1', 'Total']), axis=1, inplace=True)
+#print(df2.head())
+print(df2.info())
+
+
+for i in range(1,2):
+    df2[df2.columns[i]]=pd.to_numeric(df2[df2.columns[i]], errors='coerce')
+    df2[df2.columns[i]]=df2[df2.columns[i]].fillna(0)
+    df2[df2.columns[i]]=df2[df2.columns[i]].astype('int')
 print(df2.head())
 
+df2.rename(columns = {'Unnamed: 1':'School'}, inplace=True)
+
 df.drop(df.columns.difference(['School', 'Total Homeless Count']), axis=1, inplace=True)
-df2.drop(df2.columns.difference(['Unnamed: 1', 'Total']), axis=1, inplace=True)
-print(df, df2)
+for i in range(1,2):
+    df[df.columns[i]]=pd.to_numeric(df[df.columns[i]], errors='coerce')
+    df[df.columns[i]]=df[df.columns[i]].fillna(0)
+    df[df2.columns[i]]=df[df.columns[i]].astype('int')
+df2.drop(df2.columns.difference(['School', 'Total']), axis=1, inplace=True)
+#df=df.astype(int)
+#df2=df2.astype(int)
+
+#print(df, df2)
+#df_left = pd.merge(df2, df, how="left", indicator=True)
+#df_outer = pd.merge(df2, df, how="outer", indicator=True)
+#print(df_left)
+#print(df_outer)
+df1_join = df.join(df2, rsuffix="_right")
+print(df1_join)

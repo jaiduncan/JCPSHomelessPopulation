@@ -8,7 +8,7 @@ database on the JCPS website. The excel files with the homeless data gives suppr
 columns to protect privacy (e.g. there many only be 1 homeless student that identifies as American Indian in the school, if that is listed, that student could easily be 
 identified). You can see these numbers in the enrollment files.
 
-###Install and import to run
+Install and import to run
 
 Pip install notebook
 Pip install openpyxl
@@ -16,15 +16,10 @@ Pip install openpyxl
 import pandas as pd
 import matplotlib.pyplot as plt
 
-###Required features
+Required features
 
   *Read in data using Pandas read_excel function
   *Clean and manipulate data (e.g. eliminating unwanted columns and rows)
   *Analyzing the data (e.g. creating datframes, sorting rows alphabetically and numerically, finding the percentage)
   *Created pie charts to visualized the supressed homeless population vs total homeless population
   *Used Markdown cells to explain what I did to the data
-
-
-
-
-
